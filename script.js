@@ -74,3 +74,18 @@ fetch('https://api.github.com/users/steph00/repos')
         document.querySelector('.projects').innerHTML = data.map(repo => 
             `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`).join('');
     });
+
+    document.querySelectorAll('.leadership-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+
+    function toggleCard(card) {
+        // Only enable click effect if the device is touch-based (mobile)
+        if (window.matchMedia("(hover: none)").matches) {
+            card.classList.toggle("flipped");
+        }
+    }
+    
